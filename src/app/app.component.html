@@ -1,7 +1,24 @@
-<wj-flex-grid #testGrid [itemsSource]="data" ></wj-flex-grid>
-<wj-flex-grid [itemsSource]="data1"></wj-flex-grid>
+<!--
+只读
+[isReadOnly]="true"
+排序
+[allowSorting]="false"
 
-<wj-flex-grid #flex class="grid" [itemsSource]="data1" [isReadOnly]="true" [allowSorting]="true" >
+[showAlternatingRows]="true"
+数据项目于定义标题不一致时，自动产生列
+[autoGenerateColumns] =  "false"
+ -->
+
+
+ <!-- 根据数据显示标题 -->
+<wj-flex-grid [itemsSource]="data"></wj-flex-grid>
+
+ <!--自定义标题 -->
+<wj-flex-grid #flex class="grid" 
+  [itemsSource]="data1"
+  [isReadOnly]="true"
+  [allowSorting]="false"
+  [autoGenerateColumns]="false">
   <wj-flex-grid-column [header]="'No.'" [binding]="'id'" [width]="300"></wj-flex-grid-column>
   <wj-flex-grid-column [header]="'国家'" [binding]="'country'"></wj-flex-grid-column>
   <wj-flex-grid-column [header]="'价格'" [binding]="'sales'" [format]="'n0'"></wj-flex-grid-column>
@@ -9,5 +26,4 @@
   <wj-flex-grid-column [header]="'花销'" [binding]="'expenses'" [format]="'n0'"></wj-flex-grid-column>
   <wj-flex-grid-column [header]="'花销差异'" [binding]="'expensesDiff'" [format]="'n0'"></wj-flex-grid-column>
 </wj-flex-grid>
-<button (click)="show()">show</button>
-<a href="#">show</a>
+<button (click)="showData()">双向绑定、画面数据修改、后台自动更新、F12控制台查看</button>
